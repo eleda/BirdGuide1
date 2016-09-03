@@ -16,97 +16,98 @@ document.getElementById("pic").src=fil;
 
 <body>
 
-<?php 
-
+<?php
 function curURL() {
-//átírva:
-return "http://edweb.p8.hu/";
-/*
- $pageURL = 'http';
- if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
- $pageURL .= "://";
- if ($_SERVER["SERVER_PORT"] != "80") {
-  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
- } else {
-  $pageURL .= $_SERVER["SERVER_NAME"];
- }
- return $pageURL;
-*/
+	// ï¿½tï¿½rva:
+	return "http://edweb.p8.hu/";
+	/*
+	 * $pageURL = 'http';
+	 * if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+	 * $pageURL .= "://";
+	 * if ($_SERVER["SERVER_PORT"] != "80") {
+	 * $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+	 * } else {
+	 * $pageURL .= $_SERVER["SERVER_NAME"];
+	 * }
+	 * return $pageURL;
+	 */
+}
+function curpurl() {
+	return curURL () . "guide/picture.php";
+	// . $_SERVER["SCRIPT_NAME"];
 }
 
-function curpurl(){
+// ELï¿½Kï¿½SZï¿½Tï¿½S:
+$sp ["species"] = $_GET ["species"]; // 7
 
-return curURL() . "guide/picture.php";
-//. $_SERVER["SCRIPT_NAME"];
-}
-
-
-//ELÕKÉSZÍTÉS:
-$sp["species"]=$_GET["species"]; //7
-
-$dir = opendir(getcwd());
+$dir = opendir ( getcwd () );
 {
-$file = fopen($sp["species"] . ".spe", "r") or exit("Species file not found.");
-while(!feof($file))
-{
-$mc = fgets($file);
-$mc = substr($mc,0,strlen($mc)-2);
-
-if (substr($mc,0,8)=="genus=") {$gen=substr($mc,8);}
-if (substr($mc,0,8)=="species=") {$spe=substr($mc,8);}
-if (substr($mc,0,8)=="picture=") {$pic=substr($mc,8);}
-}
-fclose($file);
-
-// KÉPEK MEGJELENÍTÉSE ALUL
-
-$pics=array();
-$di = getcwd() . "/" . $sp["species"];
-$dir = opendir($di);
-
-while (($fil = readdir($dir))!== false){
-if ((strtolower(substr($fil,strlen($fil)-4))==".jpg")&&($fil!=".")&&($fil!="..")){array_push($pics,$fil);}
-}
+	$file = fopen ( $sp ["species"] . ".spe", "r" ) or exit ( "Species file not found." );
+	while ( ! feof ( $file ) ) {
+		$mc = fgets ( $file );
+		$mc = substr ( $mc, 0, strlen ( $mc ) - 2 );
+		
+		if (substr ( $mc, 0, 8 ) == "genus=") {
+			$gen = substr ( $mc, 8 );
+		}
+		if (substr ( $mc, 0, 8 ) == "species=") {
+			$spe = substr ( $mc, 8 );
+		}
+		if (substr ( $mc, 0, 8 ) == "picture=") {
+			$pic = substr ( $mc, 8 );
+		}
+	}
+	fclose ( $file );
+	
+	// Kï¿½PEK MEGJELENï¿½Tï¿½SE ALUL
+	
+	$pics = array ();
+	$di = getcwd () . "/" . $sp ["species"];
+	$dir = opendir ( $di );
+	
+	while ( ($fil = readdir ( $dir )) !== false ) {
+		if ((strtolower ( substr ( $fil, strlen ( $fil ) - 4 ) ) == ".jpg") && ($fil != ".") && ($fil != "..")) {
+			array_push ( $pics, $fil );
+		}
+	}
 }
 
 echo "<table width=300 border=0>";
 echo "  <tr>";
 echo "    <td>";
-$pfi = $sp["species"] . "/" . $pic;
+$pfi = $sp ["species"] . "/" . $pic;
 echo "<img src=" . $pfi . " name=p1 width=598 height=488 id='pic'/>";
 echo "</td>";
 echo "  </tr>";
 echo "  <tr>";
 echo "    <td>";
-//<img src=fricoe/main.jpg width=201 height=149 onclick='changepic()'>
+// <img src=fricoe/main.jpg width=201 height=149 onclick='changepic()'>
 
-if (count($pics)>0){
-
-//echo "<ul>";
-
-for ($i=0;$i<count($pics);$i++){
-//echo "<li>" . $pics[$i] . "</li>";
-
-$chpic= $sp["species"] . "/" . $pics[$i];
-echo "<img src=". $sp["species"] . "/" . $pics[$i] . " width='150' height='120'
- onclick='changepic(". chr(34) . $chpic . chr(34) . ")'/>";
-
-if ($i!=0){
-
-if (($i/4)==intval($i/4))
- {
- echo "</br>";}
- }
-
-//$pat = curURL() . "/guide/video.php?file=" . $specfold . "/" . $snds[$i];
-//echo "<li><a href=". $pat . 
-//" onClick=" . chr(34) . "return popup(this, 'Video')" . chr(34) . ">" .
-//$snds[$i] . "</a></li>";
+if (count ( $pics ) > 0) {
+	
+	// echo "<ul>";
+	
+	for($i = 0; $i < count ( $pics ); $i ++) {
+		// echo "<li>" . $pics[$i] . "</li>";
+		
+		$chpic = $sp ["species"] . "/" . $pics [$i];
+		echo "<img src=" . $sp ["species"] . "/" . $pics [$i] . " width='150' height='120'
+ onclick='changepic(" . chr ( 34 ) . $chpic . chr ( 34 ) . ")'/>";
+		
+		if ($i != 0) {
+			
+			if (($i / 4) == intval ( $i / 4 )) {
+				echo "</br>";
+			}
+		}
+		
+		// $pat = curURL() . "/guide/video.php?file=" . $specfold . "/" . $snds[$i];
+		// echo "<li><a href=". $pat .
+		// " onClick=" . chr(34) . "return popup(this, 'Video')" . chr(34) . ">" .
+		// $snds[$i] . "</a></li>";
+	}
+	// echo "</ul>";
 }
-//echo "</ul>";
-
-}
-
 
 echo "</td>";
 echo "  </tr>";
