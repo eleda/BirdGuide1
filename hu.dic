@@ -1,0 +1,46 @@
+
+Animalia=Állatok
+Chordata=Gerinchúrosok
+Vertebrata=Gerincesek
+
+Aves=Madarak
+Aves.d=A madarak tollal rendelkezõ állatok.
+
+Passeriformes=Verébalkatúak
+Passeriformes.d=Ezek az énekesmadarak.
+Sylvidae=Poszátafélék
+Fringillidae=Pintyfélék
+Corvidae=Varjúfélék
+Hirundidae=Fecskefélék
+Turdidae=Rigófélék
+Motacillidae=Billegetõfélék
+Muscicapidae=Légykapófélék
+Paridae=Cinegefélék
+Sturnidae=Seregélyfélék
+Passeridae=Verébfélék
+Passeridae.d=ezek a verebek.
+
+Anseriformes=Lúdalkatúak
+Anatidae=Récefélék
+
+Ciconiiformes=Gólyaalakúak
+Ciconidae=Gólyafélék
+
+Columbiformes=Galambalakúak
+Columbidae=Galambfélék
+
+Piciformes=Harkályalakúak
+Picidae=Harkályfélék
+
+Falconiformes=Sólyomalakúak
+Falconidae=Sólyomfélék
+
+Gruiformes=Darualakúak
+Rallidae=Guvatfélék
+
+Charadriiformes=Lilealakúak
+Laridae=Sirályfélék
+
+Pelecanformes=Gödényalakúak
+Phalacrocoracidae=Kárókatonafélék
+

@@ -1,0 +1,16 @@
+
+regnum=Animalia
+phylum=Chordata
+subphylum=Vertebrata
+classis=Aves
+ordo=Passeriformes
+familia=Corvidae
+genus=Corvus
+species=corax
+
+HU_n=Holló
+
+HU_d=A varjak közül a holló a legnagyobb, és egyben o a legnagyobb énekesmadár Európában. Fényes fekete tollazatú, eros csoru, nagy termetu madár. Járása és viselkedése nagyjából megegyezik a többi varjúféléével. Eros, hangos korrogó hangot ad, de másféle hangjai is vannak. Foként hegyvidékeken él. Védelem alatt áll.
+
+HU_s=pasdom.mp3
+picture=main.jpg

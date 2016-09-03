@@ -1,0 +1,16 @@
+
+regnum=Animalia
+phylum=Chordata
+subphylum=Vertebrata
+classis=Aves
+ordo=Passeriformes
+familia=Corvidae
+genus=Corvus
+species=cornix
+
+HU_n=Dolmányos varjú
+
+HU_d=A vetési varjúval megegyezo méretu, nagy termetu varjúféle. Szürke dolmányáról könnyen felismerheto. Egy másik madár, a kormos varjú keleten élo alfaja, nálunk is gyakori. Hangja érdes károgás. Bizalmasabb, mint a vetési varjú, közelebb enged magához. Nagyon értelmes és okos madarak. Osszel és télen gyakoriak a városokban. Nem védettek.
+
+HU_s=pasdom.mp3
+picture=main.jpg
