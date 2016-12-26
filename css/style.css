@@ -1,0 +1,31 @@
+body {
+	background-color: WhiteSmoke;
+}
+
+h1, h2, h3, h4, a.navbar-brand {
+	font-family: 'Arima Madurai', cursive;
+}
+
+p, div.panel-body, div.panel-heading, form, div.visible-lg {
+	font-family: 'Open Sans', sans-serif;
+}
+
+div.navbar {
+	background: none;
+	color: OliveDrab;
+	border: 0;
+	border-radius: 0;
+}
+
+div.navbar a.navbar-brand, nav li a {
+	color: OliveDrab;
+}
+
+a.navbar-brand {
+	font-size: 20px;
+}
+
+
+.jumbotron {
+	border-radius: 50px;
+}
