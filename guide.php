@@ -8,11 +8,13 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<!--[if lt IE 9]>
-			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+
+<!-- css -->
 <link href="css/extra.css" rel="stylesheet">
-<link href="css/styles.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Open+Sans" rel="stylesheet">
 
 </head>
 <body>
@@ -27,15 +29,15 @@ if (array_key_exists ( "view", $_GET )) {
 		case "species" :
 			$sp ["genus"] = $_GET ["genus"]; // 5
 			$sp ["species"] = $_GET ["species"]; // 7
-			$val = $_COOKIE ["sval"];
+			$val = isset($_COOKIE["sval"]) ? $_COOKIE ["sval"] : "";
 			break;
 		case "classis" :
 			$classis = $_GET ["classis"];
-			$val = $_COOKIE ["sval"];
+			$val = isset($_COOKIE["sval"]) ? $_COOKIE ["sval"] : "";
 			break;
 		case "ordo" :
 			$ordo = $_GET ["ordo"];
-			$val = $_COOKIE ["sval"];
+			$val = isset($_COOKIE["sval"]) ? $_COOKIE ["sval"] : "";
 			break;
 		case "search" :
 			$resu = $_GET ["search"];
@@ -65,6 +67,7 @@ $randspelink = currGuidePath () . "?view=species&genus=" . $onerandgenus . "&spe
 ?>
 <div class="container">
 
+<!-- HEADER -->
 		<div class="navbar navbar-default" role="navigation">
 
 			<div class="navbar-header navbar-left">
@@ -77,7 +80,9 @@ $randspelink = currGuidePath () . "?view=species&genus=" . $onerandgenus . "&spe
 				</button>
 
 				<a class="navbar-brand" rel="home"
-					href="<?php echo currGuidePath();?>" title="Madárhatározó">Madárhatározó <strong>BETA!!</strong></a>
+					href="<?php echo currGuidePath();?>" title="Madárhatározó">Madárhatározó
+					<span class="label label-warning">Béta</span>
+				</a>
 
 			</div>
 
@@ -87,7 +92,7 @@ $randspelink = currGuidePath () . "?view=species&genus=" . $onerandgenus . "&spe
 				<li><a href="<?php echo $randspelink;?>">Random</a></li>
 			</ul>
 
-			<div class="col-sm-6 col-md-6 pull-left">
+			<div class="col-sm-6 col-md-7 pull-left">
 
 				<form method="get" class="navbar-form navbar-search"
 					action='guide.php' id='sch'>
@@ -105,6 +110,8 @@ $randspelink = currGuidePath () . "?view=species&genus=" . $onerandgenus . "&spe
 			</div>
 
 		</div>
+
+<!-- /HEADER -->
 
 		<div class="container">
 
@@ -136,11 +143,13 @@ if (array_key_exists ( "view", $_GET )) {
 </div>
 		<p></p>
 
-
-		<footer class="navbar navbar-default">
+<!-- FOOTER -->
+		<footer>
 			<div class="container">
 				<div class="navbar-text pull-left">
-	<?php echo $version; ?> - 2011-2016.  Elekes Dávid | <a href="issues.html">Ismert hibák</a>
+	<?php echo $version; ?> - 2011-2016.  Elekes Dávid | 
+	<a href="issues.html">Megjegyzés</a> |
+	<a href="https://github.com/eleda/BirdGuide1" title="Github">Github</a>
 </div>
 			</div>
 		</footer>

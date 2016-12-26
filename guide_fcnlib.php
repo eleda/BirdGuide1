@@ -28,7 +28,8 @@ function currGuidePath() {
 
 // Parse line from a Data File
 function parsedataline($lin) {
-	$pieces = explode ( "=", $lin );
+	$pieces = explode ( '=', trim( $lin ));
+
 	return $pieces;
 }
 
@@ -50,6 +51,7 @@ function parsedatafile($filename) {
 	}
 	
 	fclose ( $file );
+
 	return $alldata;
 }
 
@@ -362,8 +364,9 @@ function search($f) {
 
 // Generate a species image box.
 function printspeciesthumb($rfile) {
+
 	$ritem = parsedatafile ( $rfile );
-	
+
 	$npref = substr ( $rfile, 0, strlen ( $rfile ) - 4 );
 	$hun = $ritem ['hu_n'];
 	$gen = $ritem ['genus'];
@@ -377,11 +380,11 @@ function printspeciesthumb($rfile) {
 	} else {
 		$paintfile = "genbrd.png";
 	}
-	
+
 	$species_link = currGuidePath () . "?view=species&genus=" . $gen . "&species=" . $spe;
 	$thislinko = currGuidePath () . "?view=ordo&ordo=" . $ord;
 	$thislinkc = currGuidePath () . "?view=classis&classis=" . $ritem ["classis"];
-	
+
 	?>
 
 <div class="col-sm-6 col-md-3">
@@ -399,7 +402,7 @@ function printspeciesthumb($rfile) {
 	</h2>
 			<?echo $gen . " " . $spe; ?>
 			Rend: <a href="<?php echo $thislinko;?>"><?php echo translateword($ord); ?></a><br />
-			Csal�d: <?php echo translateword($fam); ?>
+			Család: <?php echo translateword($fam); ?>
       </div>
 
 <?php
@@ -734,7 +737,7 @@ function showordo($con) {
 	// LIST ALL ORDO ITEMS
 	foreach ( $familiae as $fam ) {
 		?>
-<h3>Csal�d: <?php echo translateword($fam); ?> (<?php echo $fam;?>) </h3>
+<h3>Család: <?php echo translateword($fam); ?> (<?php echo $fam;?>) </h3>
 
 <?php
 		$famdesc = translateword ( $fam . ".d" );
@@ -775,7 +778,7 @@ function showindex() {
 	<?php
 	
 	$welcometitle = "Üdvözöllek a Madárhatározóban!";
-	$welcometext = "Szeretettel �dn�z�llek az internetes hat�roz�ban! Itt a saj�t �ltalam k�sz�tett k�pekkel, hangokkal ismerhet�k meg a k�l�nf�le madarak. Az adatb�zis kereshet�! J� b�ng�sz�st k�v�nunk!";
+	$welcometext = "Szeretettel Üdvözöllek az internetes határozóban! Itt a saját általam készített képekkel, hangokkal ismerhetők meg a különféle madarak. Az adatbázis kereshető! Jö böngészést kívánunk!";
 	
 	?>
 	
