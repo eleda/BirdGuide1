@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=ISO-8859-2">
 <meta charset="utf-8">
 <title>Infra Bird Guide</title>
 <meta name="generator" content="Bootply" />
@@ -20,8 +19,12 @@
 <body>
  
 <?php
-include 'guide_fcnlib.php';
-include 'guide_vars.php';
+require_once('guide_vars.php');
+require_once('guide_helper.php');
+?>
+
+<!-- routing -->
+<?php
 
 $val = "";
 if (array_key_exists ( "view", $_GET )) {
@@ -54,13 +57,16 @@ $sp ["s"] = "";
 $sp ["p"] = "";
 $sp ["speciesfile"] = "";
 
+// random species
 $onerandspec = getrandomspecies ( 1 );
 $onerandspec = $onerandspec [0];
+
 $onerandspecdet = parsedatafile ( $onerandspec );
 
 $onerandgenus = $onerandspecdet ["genus"];
 $onerandspecies = $onerandspecdet ["species"];
 
+// links
 $clalink = currGuidePath () . "?view=classis&classis=Aves";
 $randspelink = currGuidePath () . "?view=species&genus=" . $onerandgenus . "&species=" . $onerandspecies;
 

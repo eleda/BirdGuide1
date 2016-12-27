@@ -1,5 +1,7 @@
 <?php
 
+require_once('guide_vars.php');
+
 // Get Current Root URL.
 function curURL() {
 	// ?t?rva:
@@ -35,6 +37,7 @@ function parsedataline($lin) {
 
 // Parse all data from a formatted Data FIle
 function parsedatafile($filename) {
+
 	$alldata = array ();
 	
 	$file = fopen ( $filename, "r" ) or exit ( "A file " . $filename . " is required." );
@@ -175,7 +178,7 @@ function filelistbyext($ext, $dirr) {
 	while ( ($fil = readdir ( $dir )) !== false ) {
 		
 		if (endswith ( $fil, "." . $ext ) && ($fil != ".") && ($fil != "..")) {
-			array_push ( $files, $fil );
+			array_push ( $files, $dirr . '/' . $fil );
 		}
 	}
 	
@@ -184,7 +187,7 @@ function filelistbyext($ext, $dirr) {
 
 // Specfillist
 function speciesfilelist() {
-	return filelistbyext ( "spe", "" );
+	return filelistbyext ( "spe", 'spe' );
 }
 
 // Random generator
@@ -416,7 +419,7 @@ function printresultslist($f) {
 	
 	?>
 
-<p><?php echo $count; ?>  tal�lat.</p>
+<p><?php echo $count; ?>  találat.</p>
 
 <div class="row">
 			
@@ -472,7 +475,7 @@ function printcarousel($files, $pa) {
 	<div class="carousel-inner" role="listbox">
 
 		<div class="item active">
-			<img src="<?php echo $pa."/".$files[0]; ?>"
+			<img src="<?php echo $files[0]; ?>"
 				alt="<?php echo $files[0];?>">
 		</div>
 				
@@ -480,7 +483,7 @@ function printcarousel($files, $pa) {
 	for($i = 1; $i < count ( $files ); $i ++) {
 		?>
 						<div class="item">
-			<img src="<?php echo $pa."/".$files[$i]; ?>"
+			<img src="<?php echo $files[$i]; ?>"
 				alt="<?php echo $files[$i];?>">
 		</div>
 						<?php
@@ -504,19 +507,19 @@ function printplaylist($files, $pa) {
 	?>
 <audio id="audio" preload="auto" tabindex="0" style="width: 100%;"
 	controls>
-	<source src="<?php echo $pa.'/'. $files[0];?>">
+	<source src="<?php echo $files[0];?>">
 	Playlist doesn't work now.
 </audio>
 
 <ul id="playlist">
-	<li class="active"><a href="<?php echo $pa.'/'.$files[0];?>">
+	<li class="active"><a href="<?php echo $files[0];?>">
 			<?php echo $files[0];?>
 			</a></li>
 	
 	<?php
 	for($i = 1; $i < count ( $files ); $i ++) {
 		?>
-		<li><a href="<?php echo $pa.'/'.$files[$i];?>">
+		<li><a href="<?php echo $files[$i];?>">
 				<?php echo $files[$i]; ?>
 			</a></li>
 	<?php
@@ -613,10 +616,11 @@ function showclassis($con) {
 	
 	$y = false;
 	$specfiles = speciesfilelist ();
-	
+
 	$i = 0;
 	while ( $i < count ( $specfiles ) && ! $y ) {
 		$details = parsedatafile ( $specfiles [$i] );
+
 		$reg = $details ["regnum"];
 		$phy = $details ["phylum"];
 		$sub = $details ["subphylum"];
@@ -629,7 +633,7 @@ function showclassis($con) {
 		$i ++;
 	}
 	
-	// 1.b ki?rjuk:
+	// print them
 	
 	$links = array ();
 	$links ["classis"] = "";
@@ -640,10 +644,13 @@ function showclassis($con) {
 	
 	$ordos = array ();
 	
-	$dir = opendir ( getcwd () );
+	// TODO attenni valahova mashova
+	$SPE_DIR = 'spe';
+	$dir = opendir ( getcwd () . '/' . $SPE_DIR );
+
 	while ( (($fil = readdir ( $dir )) !== false) ) {
 		if ((substr ( $fil, strlen ( $fil ) - 4 ) == ".spe") && ($fil != ".") && ($fil != "..")) {
-			$file = fopen ( $fil, "r" ) or exit ( "File error." );
+			$file = fopen ( $SPE_DIR . '/' . $fil, "r" ) or exit ( "File error." );
 			while ( ! feof ( $file ) ) {
 				$mc = fgets ( $file );
 				$mc = substr ( $mc, 0, strlen ( $mc ) - 2 );
