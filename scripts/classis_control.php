@@ -35,9 +35,10 @@
 	$links ["classis"] = "";
 	$links ["ordo"] = "";
 	
-	echo "<h2> Osztály: " . translateword ( $cla ) . " (" . $cla . ")</h2>";
-	echo "<p><small>" . translateword ( $cla . ".d" ) . "</small></p>";
-	
+	?>
+	<h2> Osztály:<?php echo translateword ( $cla ); ?>(<?php echo $cla; ?>)</h2>
+	<p><small><?php echo translateword ( $cla . ".d" );?></small></p>
+	<?php
 	$ordos = array ();
 	
 	// TODO attenni valahova mashova
@@ -78,8 +79,9 @@
 		<?php
 	for($i = 0; $i < count ( $ordos ); $i ++) {
 		$thislink = currGuidePath () . "?view=ordo&ordo=" . $ordos [$i];
-		
-		echo "<a class='list-group-item' style='font-size: 20px;' href=" . $thislink . ">" . translateword ( $ordos [$i] ) . " (" . $ordos [$i] . ")</a>";
+		?>
+		<a class='list-group-item' style='font-size: 20px;' href="<?php echo $thislink; ?>"><?php echo translateword ( $ordos [$i] ); ?>(<?php echo $ordos [$i]; ?>)</a>
+		<?php
 	}
 	?>
-		</div>
+</div>
