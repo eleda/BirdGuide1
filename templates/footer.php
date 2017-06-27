@@ -6,7 +6,7 @@
 			<div class="container">
 			<!-- TODO CURRENT VERSION NUMBER -->
 				<div class="navbar-text pull-left">
-	<?php echo $version; ?> - 2011-2016.  Elekes Dávid | 
+	<?php echo $version; ?> - 2011-2017.  Elekes Dávid | 
 	<a href="issues.html">Megjegyzés</a> |
 	<a href="https://github.com/eleda/BirdGuide1" title="Github">Github</a> |
 	<span class="label label-warning">Béta</span>

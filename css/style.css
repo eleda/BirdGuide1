@@ -29,3 +29,12 @@ a.navbar-brand {
 .jumbotron {
 	border-radius: 50px;
 }
+
+/* species */
+
+#birdimge img {
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;    
+}

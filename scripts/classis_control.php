@@ -42,7 +42,7 @@
 	$ordos = array ();
 	
 	// TODO attenni valahova mashova
-	$SPE_DIR = 'spe';
+	$SPE_DIR = 'data/spe';
 	$dir = opendir ( getcwd () . '/' . $SPE_DIR );
 
 	while ( (($fil = readdir ( $dir )) !== false) ) {

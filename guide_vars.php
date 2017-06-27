@@ -1,5 +1,5 @@
 <?php
-$version = "1.6.0";
+$version = "1.6.0.170627";
 $dl = "hu";
 
 $welcometitle = "Üdvözöljük a Határozóban!";

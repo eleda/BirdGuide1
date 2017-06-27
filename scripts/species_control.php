@@ -63,7 +63,7 @@
 		</div>
 	<div class="col-sm-6">
 					
-				<?php printcarousel($imgs, $specfold);?>
+	<?php printcarousel($imgs, $specfold);?>
 			
 		</div>
 </div>
