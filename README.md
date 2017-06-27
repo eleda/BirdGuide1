@@ -8,7 +8,7 @@ Ez az alkalmazás magyarul érhető el.
 # Használat
 
 A program élő kiadása itt található meg:
-http://localhost/birdguide1/guide.php
+http://ednetwork.pe.hu/birdguide1/guide.php
 
 A kezdőoldalon négy véletlen madárfajt lehet megtalálni. Ez minden betöltéskor más és más.
 Egy madár képére kattintva elolvasható a faj neve, rendszertani elnevezése és rövid leírása hangokkal és képpel.
