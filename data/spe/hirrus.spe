@@ -1,0 +1,16 @@
+
+regnum=Animalia
+phylum=Chordata
+subphylum=Vertebrata
+classis=Aves
+ordo=Passeriformes
+familia=Hirundidae
+genus=Hirundo
+species=rustica
+
+HU_n=Füstifecske
+
+HU_d=Kedves madár, amely a dróton üldögéve, csicsergo, fecsergo kedves énekével ad hírt magáról. Szép madár, háta füstös, kormos kék, szeme alatt piros folt van, hasa fehér. Legyekkel, szúnyogokkal és egyéb rovarokkal táplálkoznak. Fészkét eresz alá, istállóba, vagy egész különös helyekre rejti. Védett madár, az egyik legismertebb vándormadarunk, április elején érkezik, osszel vonul.
+
+HU_s=pasdom.mp3
+picture=main.jpg

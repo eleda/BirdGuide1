@@ -1,0 +1,16 @@
+
+regnum=Animalia
+phylum=Chordata
+subphylum=Vertebrata
+classis=Aves
+ordo=Passeriformes
+familia=Corvidae
+genus=Corvus
+species=frugilegus
+
+HU_n=Vetési varjú
+
+HU_d=Nagy termetu fekete madarak, melyeknek öreg példányainak csortövén látszik a szürkés bor. Társas madár, mély károgó hangja van (tompább, mint a dolmányos varjú hangja). Télen nagyon gyakori a városokban és a mezokön. Hazai állománya megritkult a fajritkításnak köszönhetoen. Védett.
+
+HU_s=pasdom.mp3
+picture=main.jpg
