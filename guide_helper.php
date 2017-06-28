@@ -2,29 +2,8 @@
 
 require_once('guide_vars.php');
 
-// Get Current Root URL.
-function curURL() {
-    // ?t?rva:
-    // return "http://ednetwork.uw.hu/";
-    return "";
-    // return "http://localhost/";
-    /*
-     * $pageURL = 'http';
-     * if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-     * $pageURL .= "://";
-     * if ($_SERVER["SERVER_PORT"] != "80") {
-     * $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-     * } else {
-     * $pageURL .= $_SERVER["SERVER_NAME"];
-     * }
-     * return $pageURL;
-     */
-}
-
 // Get Current Guide URL.
 function currGuidePath() {
-    // return "";
-    // return curURL() . "korny/guide/guide.php";
     return $_SERVER ["SCRIPT_NAME"];
 }
 
@@ -36,16 +15,13 @@ function parse_data_oneline($line_str) {
 
 // Parse all data from a formatted Data FIle
 function parsedatafile($filename) {
-
     $alldata = array();
 
     $file = fopen($filename, "r") or exit("A file " . $filename . " is required.");
 
     while (!feof($file)) {
         $lin = fgets($file);
-
         $lin = substr($lin, 0, strlen($lin) - 1); // for enter key
-
         if (strrpos($lin, "=") !== FALSE) {
             $pieces = parse_data_oneline($lin);
             $alldata [strtolower($pieces [0])] = $pieces [1];
@@ -70,7 +46,6 @@ function findvalue($filename, $fnam, $side) {
 
     while (!feof($file) && !$fnd) {
         $lin = fgets($file);
-
         $lin = substr($lin, 0, strlen($lin) - 2); // for enter key
 
         if (strrpos($lin, "=") !== FALSE) {
@@ -92,6 +67,7 @@ function findvalue($filename, $fnam, $side) {
     }
 
     fclose($file);
+
     return $data;
 }
 
@@ -149,7 +125,7 @@ function translateword($latinword) {
 }
 
 // List all specific data.
-function listds($ty) {
+function collect_data_by_name($ty) {
     $arr = array();
 
     $specfiles = speciesfilelist();
@@ -210,7 +186,6 @@ function getrandomspecies($cnt) {
     return $rspecs;
 }
 
-// MEGV�LTOZOTT SZIGNAT�RA!!!!!!!!!!!!!!!!!!!!!!!
 // Search a species file by data
 function findspeciesbyname($fgenus, $fspecies) {
     $speciesfilename = "";
@@ -335,7 +310,7 @@ function search($f) {
 
     $files = speciesfilelist();
     $fnd = 0;
-
+    
     setcookie("sresult", $f, time() + 3600);
 
     foreach ($files as $fname) {
@@ -394,42 +369,3 @@ function printspeciesthumb($rfile) {
     <?php
 
 }
-
-// Print Search Results.
-function printresultslist($f) {
-    $src = search($f);
-    $results = $src ['results'];
-    $count = $src ['count'];
-    ?>
-    <?php include ('templates/fragments/resultslist.php'); ?>
-
-    <?php
-
-}
-
-// Generate image viewer
-function printcarousel($files, $pa) {
-    ?>
-    <?php include ('templates/fragments/carousel.php'); ?>
-    <?php
-
-}
-
-// Generate a playlist.
-function printplaylist($files, $pa) {
-    ?>
-    <?php include ('templates/fragments/playlist.php'); ?>
-
-    <?php
-
-}
-
-// Generate random species
-function printrandomsps() {
-    $randspec = getrandomspecies(4);
-
-    foreach ($randspec as $onespec) {
-        printspeciesthumb($onespec);
-    }
-}
-?>

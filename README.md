@@ -56,6 +56,13 @@ A könyvtárak:
 
 # Verziók
 
+## 1.6.0.170628
+
+- A szkriptek és a template-k tovább lettek írva.
+- Néhány függvény eltűnt a guide_helper fájlból.
+- Régi kódok (Silverlight) eltűntek.
+- Stíluslapok egységesebbek lettek.
+
 ## 1.6.0.170627
 
 Ebben a verzióban az a legfőbb újdonság, hogy újjá lett szervezve a könyvtárrendszer.
