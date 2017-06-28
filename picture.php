@@ -17,24 +17,9 @@ document.getElementById("pic").src=fil;
 <body>
 
 <?php
-function curURL() {
-	// �t�rva:
-	return "http://edweb.p8.hu/";
-	/*
-	 * $pageURL = 'http';
-	 * if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-	 * $pageURL .= "://";
-	 * if ($_SERVER["SERVER_PORT"] != "80") {
-	 * $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-	 * } else {
-	 * $pageURL .= $_SERVER["SERVER_NAME"];
-	 * }
-	 * return $pageURL;
-	 */
-}
+
 function curpurl() {
-	return curURL () . "guide/picture.php";
-	// . $_SERVER["SCRIPT_NAME"];
+	return "guide/picture.php";
 }
 
 // EL�K�SZ�T�S:
@@ -44,7 +29,7 @@ $dir = opendir ( getcwd () );
 {
 	$file = fopen ( $sp ["species"] . ".spe", "r" ) or exit ( "Species file not found." );
 	while ( ! feof ( $file ) ) {
-		$mc = fgets ( $file );
+		fgets ( $file );
 		$mc = substr ( $mc, 0, strlen ( $mc ) - 2 );
 		
 		if (substr ( $mc, 0, 8 ) == "genus=") {

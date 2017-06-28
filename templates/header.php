@@ -9,7 +9,6 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <!-- css -->
-<link href="css/extra.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 
 <!-- Google Fonts -->

@@ -1,20 +1,13 @@
+<h2> Osztály:<?php echo translateword($cla); ?>(<?php echo $cla; ?>)</h2>
+<p><small><?php echo translateword($cla . ".d"); ?></small></p>
 
-<div class="container">
-
-<!--TODO live data -->
-
-<h2> Osztály: Madarak
- (Aves)</h2><p><small>A madarak tollal rendelkező állatok.
-</small></p><div class="list-group">
-		<a class='list-group-item' style='font-size: 20px;' href=/birdguide1/guide.php?view=ordo&ordo=Passeriformes>Verébalkatúak
- (Passeriformes)</a><a class='list-group-item' style='font-size: 20px;' href=/birdguide1/guide.php?view=ordo&ordo=Anseriformes>Lúdalkatúak
- (Anseriformes)</a><a class='list-group-item' style='font-size: 20px;' href=/birdguide1/guide.php?view=ordo&ordo=Ciconiiformes>Gólyaalakúak
- (Ciconiiformes)</a><a class='list-group-item' style='font-size: 20px;' href=/birdguide1/guide.php?view=ordo&ordo=Columbiformes>Galambalakúak
- (Columbiformes)</a><a class='list-group-item' style='font-size: 20px;' href=/birdguide1/guide.php?view=ordo&ordo=Piciformes>Harkályalakúak
- (Piciformes)</a><a class='list-group-item' style='font-size: 20px;' href=/birdguide1/guide.php?view=ordo&ordo=Falconiformes>Sólyomalakúak
- (Falconiformes)</a><a class='list-group-item' style='font-size: 20px;' href=/birdguide1/guide.php?view=ordo&ordo=Gruiformes>Darualakúak
- (Gruiformes)</a><a class='list-group-item' style='font-size: 20px;' href=/birdguide1/guide.php?view=ordo&ordo=Charadriiformes>Lilealakúak
- (Charadriiformes)</a><a class='list-group-item' style='font-size: 20px;' href=/birdguide1/guide.php?view=ordo&ordo=Pelecanformes>Gödényalakúak
- (Pelecanformes)</a>		</div>
-
+<div class="list-group">
+    <?php for ($i = 0; $i < count($ordos); $i ++) : 
+        $thislink = currGuidePath() . "?view=ordo&ordo=" . $ordos [$i];
+        ?>
+        <a class='list-group-item' style='font-size: 20px;' 
+           href="<?php echo $thislink; ?>"><?php echo translateword($ordos [$i]); ?>(<?php echo $ordos [$i]; ?>)
+        </a>
+    <?php endfor; ?>
+    
 </div>

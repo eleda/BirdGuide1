@@ -12,5 +12,13 @@
 <h2>Véletlen madarak</h2>
 
 <div class="row">
-	<?php printrandomsps(); ?>
+<?php    
+    $randspec = getrandomspecies(4);
+
+    foreach ($randspec as $onespec) {
+        printspeciesthumb($onespec);
+    }
+    
+?>    
+    
 </div>

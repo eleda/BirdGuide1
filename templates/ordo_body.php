@@ -38,7 +38,7 @@
 			$fami = strtolower ( findvalue ( $spe, "familia", "l" ) );
 			
 			if ($fami == $fam) {
-				printspeciesthumb ( $spe );
+                            printspeciesthumb( $spe );
 			}
 		}
 		?>
